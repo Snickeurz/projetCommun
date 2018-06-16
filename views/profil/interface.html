@@ -1,0 +1,311 @@
+<!--
+
+INTERFACE.HTML
+
+Permet d'afficher la vue du dashboard profil.
+
+Affiche un menu + inclut des fichiers nécessaire à la naviguation du profil.
+-->
+
+<body>
+
+
+<!--
+MESSAGE DE BIENVENUE
+-->
+<div style="position: relative;padding: .75rem 1.25rem;" class="alert-style alert-info text-center alert-dismissible fade show" role="alert">
+    <strong class="text-center">Bon retour parmis nous,
+    <?php
+        echo $name;
+    ?>
+    </strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+
+<!-- MESSAGE POUR RETOUR D'EDITION DU PROFIL -->
+<div class="alert alert-info text-center alert-dismissible fade show hideDisplay" role="alert" id="editProfilSuccess">
+    <div id="display_success_edit"></div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+
+<!--
+BARRE DE NAVIGUATION HORIZONTAL POUR LE PROFIL
+ -->
+<header class="l-header">
+    <div class="l-header__inner clearfix">
+        <div class="c-header-icon js-hamburger">
+            <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
+        </div>
+        <div class="c-header-icon"  data-toggle="modal" data-target="#notifModal">
+            <span class="c-badge c-badge--header-icon animated shake">xx</span>
+            <i class="fa fa-bell"></i>
+        </div>
+        <div class="c-search">
+            <input class="c-search__input u-input" placeholder="Votre recherche..." type="text"/>
+        </div>
+        <div class="header-icons-group">
+            <div class="c-header-icon basket"><i class="fa fa-search"></i></div>
+            <div class="c-header-icon logout"><a href="./index.php?uc=logout"><i class="fa fa-power-off"></i></a></div>
+        </div>
+    </div>
+</header>
+
+<!--
+
+MENU VERTICAL GAUCHE POUR SWITCHER DE CATEGORIE
+
+-->
+
+<div class="l-sidebar">
+    <div class="logo">
+        <div class="logo__txt"><span class="fa fa-home"></span></div>
+    </div>
+    <div class="l-sidebar__content">
+        <nav class="c-menu js-menu">
+            <ul class="u-list">
+                <li class="c-menu__item is-active" data-toggle="tooltip" title="Tous vos contrats" id="menu_contrat">
+                    <div class="c-menu__item__inner" onclick="call('listecontrats');"><i class="fa fa-list-alt"></i>
+                        <div class="c-menu-item__title" ><span>Mes contrats</span></div>
+                    </div>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Modifiez vos informations personnels" id="menu_profil">
+                    <div class="c-menu__item__inner" onclick="call('profile');"><i class="fa fa-edit"></i>
+                        <div class="c-menu-item__title"><span>Mon profil</span></div>
+                    </div>
+                </li>
+                <li class="c-menu__item " data-toggle="tooltip" title="Toutes vos notifications" id="menu_notif">
+                    <div class="c-menu__item__inner" onclick="call('listeNotifications');"><i class="fa fa-bell"></i>
+                        <div class="c-menu-item__title"><span>Centre de notifications</span></div>
+                    </div>
+                </li>
+                <li class="c-menu__item " data-toggle="tooltip" title="Modifier vos préférences" id="menu_param">
+                    <div class="c-menu__item__inner" onclick="call('pref');"><i class="fa fa-cogs"></i>
+                        <div class="c-menu-item__title"><span>Paramètres</span></div>
+                    </div>
+                </li>
+
+                <?php
+                // Menu diffère en fonction du rôle
+                    if($role==1)
+                    {
+                     echo "<li class='c-menu__item' data-toggle='tooltip' title='Votre entreprises partenaires' id='menu_entreprises'>";
+                        echo "<div class='c-menu__item__inner' onclick=\"call('liste_entreprises');\"><i class='fa fa-handshake-o'></i>";
+                        echo "<div class='c-menu-item__title'><span>Mes entreprises</span></div>";
+                        echo "</div>";
+                     echo "</li>";
+                    }
+                    else
+                    {
+
+                        echo "<li class='c-menu__item' data-toggle='tooltip' title='Vos clients partenaires' id='menu_clients'>";
+                        echo "<div class='c-menu__item__inner' onclick=\"call('liste_clients');\"><i class='fa fa-handshake-o'></i>";
+                            echo "<div class='c-menu-item__title'><span>Mes clients</span></div>";
+                        echo "</div>";
+                        echo "</li>";
+
+                        echo "<li class='c-menu__item' data-toggle='tooltip' title='Créer un nouveau contrat' id='menu_new_contrat'>";
+                            echo "<div class='c-menu__item__inner' onclick=\"call('new_contrat');\"><i class='fa fa-plus'></i>";
+                            echo "<div class='c-menu-item__title'><span>Ajouter un contrat</span></div>";
+                        echo "</div>";
+                        echo "</li>";
+                    }
+
+                ?>
+
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!--
+mainContent est itéré par le contenu pour chaque onglet du menu
+-->
+<div id="mainContent">
+</div>
+
+<!--INTREGRATION DES ELEMENTS DU PROFIL-->
+<?php
+
+//ON INTEGRE TOUS LES FICHIERS CONTENANT LES VUES POUR LE PROFIL
+include("./views/form/creerContrat.html");
+include("listeContrats.html");
+include("preferences.html");
+include("showprofil.html");
+include("./views/form/modifProfil.html");
+include("listeNotifications.html");
+if($role)
+{
+    include("./views/profil/listes/listeEntreprises.php");
+}
+else
+{
+    include("./views/profil/listes/listeClients.php");
+}
+
+//MODALES :
+include("modals/modalNotif.html");
+include("modals/modalContrat.html");
+?>
+
+
+</body>
+<br>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script>
+    /**
+     * Cette fonction permet d'afficher le bon contenu au clique d'un item du menu vertical gauche
+     * @param arg l'élement à afficher
+     */
+    function call(arg) {
+        /**
+         * on cache toutes les vues du profil
+         */
+        $("#listeContrats").hide();
+        $("#listePreference").hide();
+        $("#formContrat").hide();
+        $("#showprofil").hide();
+        $("#editProfil").hide();
+        $("#listeNotifications").hide();
+        $("#listeClients").hide();
+        $("#listeEntreprises").hide();
+        /**
+         * On enlève la class is-active sur les divs de menu
+         */
+        $("#menu_profil").removeClass("is-active");
+        $("#menu_notif").removeClass("is-active");
+        $("#menu_contrat").removeClass("is-active");
+        $("#menu_param").removeClass("is-active");
+        $("#menu_contact").removeClass("is-active");
+        $("#menu_entreprises").removeClass("is-active");
+        $("#menu_clients").removeClass("is-active");
+        $("#menu_new_contrat").removeClass("is-active");
+
+        /**
+         * En fonction du paramètre passé
+         */
+        switch (arg)
+        {
+            /**
+             * On veut afficher la vue modifier profil
+             */
+            case 'modifProfil':
+                /**
+                 * afficher le formulaire d'édition de profil
+                 */
+                $("#editProfil").show();
+                /**
+                 * On rajoute la class is active a la div concerné
+                 */
+                $("#menu_profil").addClass("is-active");
+                break;
+            case 'pref':
+                /**
+                 * Afficher la liste des préférences de l'utilisateur
+                 */
+                $("#listePreference").show();
+                $("#menu_param").addClass("is-active");
+                break;
+            case 'profile':
+                /**
+                 *  Affiche les informations du profil
+                 */
+                $("#showprofil").show();
+                $("#menu_profil").addClass("is-active");
+                break;
+            case 'listecontrats':
+                /**
+                 * Affiche la liste des contrats
+                 */
+                $("#listeContrats").show();
+                $("#menu_contrat").addClass("is-active");
+                break;
+            case 'new_contrat':
+                /**
+                 * Afficher le formulaire pour les contrats
+                 */
+                $("#formContrat").show();
+                $("#menu_new_contrat").addClass("is-active");
+                break;
+            case 'liste_clients':
+                /**
+                 * Afficher la liste des clients
+                 */
+                $("#listeClients").show();
+                $("#menu_clients").addClass("is-active");
+                break;
+                case 'liste_entreprises':
+                /**
+                 * Afficher la liste des clients
+                 */
+                $("#listeEntreprises").show();
+                $("#menu_entreprises").addClass("is-active");
+                break;
+            case 'listeNotifications':
+                /**
+                 * Afficher la liste des notifications
+                 */
+                $("#listeNotifications").show();
+                $("#menu_notif").addClass("is-active");
+                break;
+            default:
+                break;
+        }
+    }
+
+</script>
+<script>
+    //Fonction JS sidenav
+var Dashboard = function () {
+    var global = {
+        tooltipOptions: {
+            placement: "right"
+        },
+        menuClass: ".c-menu"
+    };
+
+
+    /**
+     * Permet de changer la taille de la sidebar de naviguation du profil
+     */
+    var sidebarChangeWidth = function sidebarChangeWidth() {
+        var $menuItemsTitle = $("li .menu-item__title");
+
+        $("body").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+        $(".hamburger-toggle").toggleClass("is-opened");
+
+        if ($("body").hasClass("sidebar-is-expanded")) {
+            $('[data-toggle="tooltip"]').tooltip("destroy");
+        } else {
+            $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+        }
+    };
+
+    return {
+        init: function init() {
+            $(".js-hamburger").on("click", sidebarChangeWidth);
+
+            $(".js-menu li").on("click", function (e) {
+                menuChangeActive(e.currentTarget);
+            });
+
+            $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+        }
+    };
+}();
+Dashboard.init();
+</script>

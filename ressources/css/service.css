@@ -1,0 +1,64 @@
+.services-section {padding-top:60px; padding-bottom:60px;background:#e2e2e2;}
+.service-box h3 {
+    color: #59626b;
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: capitalize;
+    line-height: 36px;
+    letter-spacing:1px;
+    margin: 0;
+}
+.service-content p {margin-top:5px;margin-bottom: 20px;}
+.service-icon{width: 50px;
+    height: 50px;
+    border: 1px solid #e4e4e4;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+    float:left;
+    display: table;
+    color:red;
+    transform: rotate(-45deg);}
+.service-content{ margin-top: 40px; margin-left:120px;}
+
+
+.price {
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+.price .header {
+    background-color: #111;
+    color: white;
+    font-size: 25px;
+}
+
+.price li {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+}
+
+.price .grey {
+    background-color: #eee;
+    font-size: 20px;
+}
+
+.buttonService {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+

@@ -1,0 +1,15 @@
+.separateur-vertical{
+    border-right:1px solid #bfbdbd;
+}
+
+.titre_liste_client{
+    margin-top:0px;
+
+}
+
+.client-item{
+    border:	1px solid #D1CFCF ;
+    padding: 10px;
+    border-radius:10px;
+    margin-bottom:25px;
+}

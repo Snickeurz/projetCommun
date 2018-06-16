@@ -1,0 +1,68 @@
+
+<!--
+ Modal pour afficher les Notifications récentes
+Affiche les 3 notifs les plus récentes
+-->
+<div class="modal fade" id="notifModal" tabindex="-1" role="dialog" aria-labelledby="notifModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title bg-info" id="LesNotifs">Mes notifications <span class="fa fa-bell"></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--
+            BODY DE LA FENETRE MODAL
+            -->
+            <div class="modal-body">
+                <div class="col-md-1"></div>
+                <div class="col-md-8 padding-top-10">
+                    <div class="notif-extended">
+                        <div>
+                            <p class="notify-count-green">Rappel !</p>
+                        </div>
+                        <div class="notif-message">
+                            <a href="#">
+                                <span class="fa fa-clock-o fa-fw"></span> 27/01/18
+                                <span class="notif-subject">
+                                     <span class="notif-subject-from">Signez votre contrat du xx/xx/xx</span>
+                                </span>
+                                <span class="notif-subject-message padding-right-10">
+                                    Vous recevez ceci parce que voilà
+                                   <span class="label label-danger pull-right">Entreprise</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-8 padding-top-10">
+                    <div class="notif-extended">
+                        <div>
+                            <p class="notify-count-dark">Rappel !</p>
+                        </div>
+                        <div class="notif-message">
+                            <a href="#">
+                                <span class="fa fa-clock-o fa-fw"></span> 27/01/18
+                                <span class="notif-subject">
+                    <span class="notif-subject-from">Signez votre contrat du xx/xx/xx</span>
+                </span>
+                                <span class="notif-subject-message padding-right-10">
+                    Vous recevez ceci parce que voilà
+                    <span class="label label-danger pull-right">Entreprise</span>
+                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title bg-info font-weight-bold" id="modalSuscribeOffert"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <div class="form-group">
+                        <div class="">
+                            <label for="recipient-name" class="col-form-label"></label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                    </div>
+
+                <div class="row">
+                    <!-- You can make it whatever width you want. I'm making it full width
+                         on <= small devices and 4/12 page width on >= medium devices -->
+                    <div class="col">
+
+
+                        <!-- CREDIT CARD FORM STARTS HERE -->
+                        <div class="card border-info">
+                            <div class="panel-heading" >
+                                <div class="text-center" >
+                                    <h3 class="panel-title" >Procédure de paiement</h3>
+                                    <div class="block-center">
+                                        <img class="" src="http://i76.imgup.net/accepted_c22e0.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="panel-body">
+                                <form role="form" id="payment-form" method="POST" action="javascript:void(0);">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="text-center">
+                                                <label class="font-weight-bold">CARTE DE CREDIT <span class="fa fa-credit-card"></span> </label>
+                                                <div class="input-group">
+                                                    <input
+                                                            type="tel"
+                                                            class="form-control arrondi"
+                                                            name="cardNumber"
+                                                            placeholder="Valid Card Number"
+                                                            autocomplete="cc-number"
+                                                            required autofocus
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">EXPIRATION <span class="fa fa-calendar"></span> </label>
+                                                <input
+                                                        type="tel"
+                                                        class="form-control arrondi"
+                                                        name="cardExpiry"
+                                                        placeholder="MM / YY"
+                                                        autocomplete="cc-exp"
+                                                        required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-5 col-md-5 pull-right">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold">CVC <span class="fa fa-lock"></span> </label>
+                                                <input
+                                                        type="tel"
+                                                        class="form-control arrondi"
+                                                        name="cardCVC"
+                                                        placeholder="CVC"
+                                                        autocomplete="cc-csc"
+                                                        required
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="text-center">
+                                                <label class="font-weight-bold">CODE PROMO</label>
+                                                <input type="text" class="form-control arrondi" name="couponCode" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="display:none;">
+                                        <div class="col-xs-12">
+                                            <p class="payment-errors"></p>
+                                        </div>
+                                    </div>
+
+                                    <a href="" class="btn btn-success pull-right arrondi" type="submit">Payer</a>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- CREDIT CARD FORM ENDS HERE -->
+
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('Vous avez selectionnez <<' + recipient + '>>')
+        modal.find('.modal-body input').val(recipient)
+    })
+</script>

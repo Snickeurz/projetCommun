@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="./ressources/css/login.css"/>
+<script src="./ressources/js/login.js"></script>
+<section class="container">
+    <article class="half">
+        <h1>Connexion</h1>
+        <div class="tabs">
+            <span class="tab signin active" id="signi" onclick="affichage();"><a href="#signin">Se connecter</a></span>
+            <span class="tab signup" id="signu" onclick="affichage();"><a>Créer un compte</a></span>
+            <!--  <span class="tab signup"><a href="#">Retour</a></span> -->
+        </div>
+        <div class="content">
+            <div class="signin-cont cont" id="signin">
+                <form action="./index.php" method="post">
+                    <input type="text" name="mail" id="mail" class="inpt" placeholder="Mail">
+                    <input type="password" name="mdp" id="mdp" class="inpt" placeholder="Password">
+                    <span style="float:right;font-color:black;font-size:11px"><a
+                            href="#">Mot de passe oublié ?</a></span>
+                    <div class="submit-wrap">
+                        <input type="submit" value="Sign in" name="signin" class="submit">
+                    </div>
+                </form>
+            </div>
+            <div class="signin-cont cont" id="signup" style="display:none">
+                <form action="./index.php" method="post">
+                    <span><input type="text" name="prenom" id="prenom" style="display:inline;width:46%;float:left" class="inpt" placeholder="Prénom">
+                    <input type="text" name="nom" id="nom" style="display:inline;width: 50%;float: right;" class="inpt" placeholder="Nom"></span>
+                    <input type="password" name="mdp" id="mdp" class="inpt" placeholder="Mot de passe">
+                    <input type="text" name="mail" id="mail" class="inpt" placeholder="Mail">
+                    <span class="radio radio-inline"><input type="radio" name="role" value="0">Entreprise</span>
+                    <span class="radio radio-inline"><input type="radio" name="role" value="1">Particulier</span>
+					<br>
+                    <div class="submit-wrap">
+                        <input type="submit" value="Sign up" name="signup" class="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+    <!-- J'ai bougé les styles dans la feuille de style login.css-->
+    <div class="half bg contour_img_login">
+        <img src="./ressources/img/contrat.png" class="img_contrat" alt="Contrat"></a>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,69 @@
+
+<main class="l-main hideDisplay" id="editProfil" >
+
+    <div class="content-wrapper content-wrapper--with-bg">
+        <h1 class="page-title bg-info">MON PROFIL <span class="fa fa-user bg-info"></span></h1>
+        <hr>
+        <button class="btn btn-info" onclick="call('profile');"><span class="fa fa-arrow-left"></span> Retour</button>
+        <div class="page-content bg-dark text-white">
+            <div>
+
+                <h4 class="header-title">MODIFIER PRENOM & NOM :</h4>
+                <hr class="bg-info">
+                <form action="./index.php?uc=profil&action=editNames"  method="POST" class="">
+                    <div class="form-group">
+                        <input type="text" class="form-control arrondi" id="nom" name="nom" placeholder="Nom.." required="" autofocus="">
+                        <br>
+                        <input type="text" class="form-control arrondi" id="prenom" name="prenom" placeholder="Prenom.." required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-default btn-send pull-right arrondi" value="Mettre à jour"></input>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <hr>
+            <div>
+                <h4 class="header-title">MODIFIER LES COORDONNEES :</h4>
+                <hr class="bg-info">
+                <form action="./index.php?uc=profil&action=editCoord"  method="POST" class="">
+                    <div class="form-group">
+                        <input type="text" class="form-control arrondi" id="email" name="email" placeholder="Adresse email.." required="" autofocus="">
+                        <br>
+                        <input type="text" class="form-control arrondi" id="phone" name="phone" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="10" placeholder="Numéro tel." required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-default btn-send pull-right arrondi" value="Mettre à jour"></input>
+                    </div>
+                </form>
+            </div>
+
+            <br>
+            <hr>
+            <div>
+                <h4 class="header-title">MODIFIER LE MOT DE PASSE :</h4>
+                <hr class="bg-info">
+                <form action="./index.php?uc=profil&action=editPassword" method="POST" class="" id="resetPassword">
+                    Mot de passe actuel :
+                    <input type="password" class="form-control arrondi" id="password" name="password" placeholder="Votre mot de passe actuel.." required="" autofocus="">
+                    <br>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col"><hr class="bg-info"></div>
+                        <div class="col"></div>
+                    </div>
+
+                    Nouveau mot de passe :
+                    <input type="password" class="form-control arrondi" id="newpassword" name="new_password" placeholder="Nouveau mdp.." required="" autofocus="">
+                    <br>
+                    Repétez :
+                    <input type="password" class="form-control arrondi" id="confirmpassword" name="nm" placeholder="Confirmer.." required="" autofocus="">
+                    <br>
+                    <div class="form-group">
+                        <input type="submit" value="Mettre à jour" class="btn btn-default btn-send pull-right arrondi"></input>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

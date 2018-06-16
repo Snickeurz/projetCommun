@@ -1,0 +1,76 @@
+<!-- template des contrats (showroom) -->
+<div class="alert alert-info text-center alert-dismissible fade show" role="alert">
+    Vous visionnez actuellement le contrat n°
+    <?php
+    echo $collectionContrat->getObjectAtIndex($collectionContrat->findObjectByIdContrat($_GET["show"]))->getId().' , ';
+    ?>
+    <span class="font-weight-bold">
+        <?php
+           echo $collectionContrat->getObjectAtIndex($collectionContrat->findObjectByIdContrat($_GET["show"]))->getNomContrat();
+        ?>
+    </span><br>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="container container mt-4 mb-5">
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-dark">
+                <tbody>
+                <tr>
+                    <th scope="row"><span class="fa fa-eye"></span> </th>
+                    <td><?php echo $collectionContrat->getObjectAtIndex($collectionContrat->findObjectByIdContrat($_GET["show"]))->getDateUpload(); ?></td>
+                    <td>Création contrat</td>
+
+                </tr>
+                <tr>
+                    <th scope="row"><span class="fa fa-eye"></span></th>
+                    <td>06/02/16</td>
+                    <td>Vous avez signé votre contrat</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-sm-4">
+
+            <div class="card">
+                <a href="<?php echo $collectionContrat->getObjectAtIndex($collectionContrat->findObjectByIdContrat($_GET['show']))->getContratURL(); ?>" download class="btn btn-success"><span class="fa fa-cloud"></span>    Télécharger</a>
+                <hr>
+                <div class="row font-weight-bold">
+                    <div class="col">Taille : 2.5Mo</div>
+                    <div class="col">Upload : <?php echo $collectionContrat->getObjectAtIndex($collectionContrat->findObjectByIdContrat($_GET["show"]))->getDateUpload();; ?></div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            <div class="font-weight-bold">
+                <span class="fa fa-home"></span>
+                <?php if($role)
+                      {
+                        echo "Entreprise : ";
+                        echo AccountManager::getNameById($collectionContrat->getObjectAtIndex($collectionContrat->findObjectByIdContrat($_GET["show"]))->getIdEntreprise());
+                      }
+                      else
+                      {
+                        echo "Client : ";
+                        echo AccountManager::getNameById($collectionContrat->getObjectAtIndex($collectionContrat->findObjectByIdContrat($_GET["show"]))->getIdClient());
+                      }
+                ?>
+            </div>
+
+        </div>
+        <div class="col-sm">
+
+        </div>
+        <div class="col-sm">
+            <a href="./index.php?uc=contact"><span class="fa fa-warning"></span> Signaler un problème</a>
+        </div>
+    </div>
+</div>

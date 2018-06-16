@@ -1,0 +1,107 @@
+<!-- Affiche la liste des préférences dans le profil -->
+<main class="l-main hideDisplay" id="listePreference" >
+    <div class="content-wrapper content-wrapper--with-bg">
+        <h1 class="page-title bg-info">MES PREFERENCES <span class="fa fa-wrench bg-info"></span></h1>
+        <div class="page-content">
+            <?php
+			
+			if($preferences)
+			{
+				foreach($preferences as $pref)
+				{
+					$getNotif = $pref[0];
+					$getNews = $pref[1];
+					$getMails = $pref[2];
+				}
+			}
+			else
+			{
+				$getNotif = 0;
+				$getNews = 0;
+				$getMails = 0;
+			}
+            ?>
+            <form method="POST" action="./index.php?uc=profil&ac=modificationPreferences">
+                <div class="card border-info">
+                    <h5 class="card-title text-info">
+                        Recevoir des notifications
+                    </h5>
+                    <div class="card-body">
+                        <label class="custom-control custom-checkbox">
+                            Activez ou désactivez la présence des notifications lorsque vous naviguez
+                            <?php
+                            if($getNotif)
+                            {
+                                echo "<input type='checkbox' class='custom-control-input' id='recevoir_notif' name='recevoir_notif' checked>";
+                            }else{
+                                echo "<input type='checkbox' class='custom-control-input' id='recevoir_notif' name='recevoir_notif'>";
+                            }
+                            ?>
+                            <span class="custom-control-indicator"></span>
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div class="card border-info">
+                    <h5 class="card-title text-info">
+                        News letter
+                    </h5>
+                    <div class="card-body">
+                        <label class="custom-control custom-checkbox">
+                            Activez ou désactivez l'envoie de nos newsletter
+                            <?php
+                            if($getNews)
+                            {
+                                echo "<input type='checkbox' class='custom-control-input' id='recevoir_news_letter' name='recevoir_news_letter' checked>";
+                            }else{
+                                echo "<input type='checkbox' class='custom-control-input' id='recevoir_news_letter' name='recevoir_news_letter'>";
+                            }
+                            ?>
+                            <span class="custom-control-indicator"></span>
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div class="card border-info">
+                    <h5 class="card-title text-info">
+                        Recevoir des notifications sur votre boîte email
+                    </h5>
+                    <div class="card-body">
+                        <label class="custom-control custom-checkbox">
+                            Activez ou désactivez l'envoie de notification via e-mail
+                            <?php
+                            if($getMails)
+                            {
+                                echo "<input type='checkbox' class='custom-control-input' id='recevoir_mail' name='recevoir_mail' checked>";
+                            }else{
+                                echo "<input type='checkbox' class='custom-control-input' id='recevoir_mail' name='recevoir_mail'>";
+                            }
+                            ?>
+                            <span class="custom-control-indicator"></span>
+                        </label>
+                    </div>
+                </div>
+                <input type="hidden" name="modif_traitement" id="modif_traitement" value="true">
+                <input type="submit" class="btn btn-info pull-right" value="Modifier les préférences">
+
+
+            </form>
+
+
+            <!--<div class="card bg-dark text-white">
+                <h5 class="card-title">
+                    News letter
+                </h5>
+                <div class="card-body">
+                    <h6> Vous ne recevez pas notre newsletter ? Abonnez-vous dès maintenant !</h6>
+                    <form>
+                        <input id="myInput" placeholder="Votre adresse e-mail.." id="recevoir_news_letter_mail" name="recevoir_news_letter_mail">
+                    </form>
+                    <a href="#" class="btn btn-success pull-right" type="submit">Je m'abonne ! <span class="fa fa-send"></span></a>
+
+                </div>
+            </div>-->
+
+        </div>
+    </div>
+</main>

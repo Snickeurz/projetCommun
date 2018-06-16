@@ -1,0 +1,111 @@
+
+<img src="./ressources/img/banniere_contact.jpg"/>
+<div class="alert alert-info text-center alert-dismissible fade show hideDisplay" role="alert" id="envoie_reussit">
+    <div id="display_sucess_send_contact"></div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<br>
+<br>
+<h1 class="header-title"> Contactez-nous ! </h1>
+<hr class="bg-dark w-25 ml-10">
+<br>
+<div class="row">
+
+    <div class="col"></div>
+    <div class="col-8">
+
+        <form action="./index.php?uc=contact&ac=contact_support"  method="POST">
+            <div class="form-group">
+              <input type="text" class="form-control arrondi" id="subject" name="subject" maxlength="30" placeholder="L'objet de votre demande.." required>
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="text" class="form-control arrondi" id="phone" name="phone" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="10" placeholder="Numéro tel.">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control textarea-contact arrondi" rows="5" id="message" name="message" placeholder="Décrivez votre problème... *" required=""></textarea>
+                <br>
+                <input type="submit" class="btn btn-default btn-send pull-right arrondi" value="Envoyer"> <span class="glyphicon glyphicon-send"></span> </input>
+            </div>
+            <p>
+                Les champs annotés d'une astérisque (*) sont obligatoires.
+            </p>
+        </form>
+
+    </div>
+    <div class="col"></div>
+
+</div>
+
+<br>
+
+
+<div class="row">
+    <div class="col">
+     <div class="box">
+            <div class="icon">
+                <div class="image"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                <br>
+                <div class="info">
+                    <h3 class="title">Adresses de contact :</h3>
+                    <p>
+                        <i class="fa fa-envelope" aria-hidden="true"></i> &nbsp blabla@gmail.com
+                        <br>
+                        <br>
+                        <i class="fa fa-envelope" aria-hidden="true"></i> &nbsp ouioui@gmail.com
+                    </p>
+
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+
+    </div>
+    <div class="col">
+
+        <div class="box">
+            <div class="icon">
+                <div class="image"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+                <br>
+                <div class="info">
+                    <h3 class="title">Téléphone :</h3>
+                    <p>
+                        <i class="fa fa-mobile" aria-hidden="true"></i> &nbsp 06 xx xx xx xx
+                        <br>
+                        <br>
+                        <i class="fa fa-mobile" aria-hidden="true"></i> &nbsp  06 xx xx xx xx
+                    </p>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+
+    </div>
+    <div class="col">
+
+        <div class="box">
+            <div class="icon">
+                <div class="image"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                <br>
+                <div class="info">
+                    <h3 class="title">Adresse :</h3>
+                    <p>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp PARIS XIII
+                        "Paris panthéon-sorbonne
+                    </p>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+        <iframe width="100%;" height="320px;" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39487.74458755472!2d2.301215024091399!3d48.86152388667604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1515248841382" allowfullscreen></iframe>
+

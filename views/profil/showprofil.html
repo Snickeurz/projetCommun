@@ -1,0 +1,132 @@
+<!-- Affiche les informations du profil dans le profil -->
+<main class="l-main hideDisplay" id="showprofil">
+    <div class="content-wrapper content-wrapper--with-bg">
+        <h1 class="page-title bg-info">MON PROFIL <span class="fa fa-user bg-info"></span></h1>
+        <div class="page-content">
+
+            <div class="row">
+                <div class="col col-sm-2">
+
+                    <button class="btn btn-sucess" onclick="call('modifProfil');">
+                        <span class="fa fa-edit"></span> Modifier le profil
+                    </button>
+
+                </div>
+                <div class="col col-sm-10">
+
+                    <div class="alert alert-warning text-center" role="alert">
+                        Vous possèdez actuellement notre offre "<b>BASIQUE</b>"
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+            <?php
+                 echo "<div class='row'>";
+                     echo "<div class='col'>";
+                            echo "<div class='card border-info'>";
+                            echo "<div class='text-center font-weight-bold card-header'>";
+                                echo "<span class='fa fa-user'></span> Nom :";
+                                echo "</div>";
+                                echo "<div id='showNameProfil' class='card-body text-center text-info'>";
+                                    echo $compte->getLastname();
+                                echo "</div>";
+                           echo "</div>";
+                        echo "</div>";
+                        echo "<div class='col'>";
+                            echo "<div class='card border-info'>";
+                                echo "<div class='text-center font-weight-bold card-header'>";
+                                    echo "<span class='fa fa-user'></span> Prenom :";
+                                echo "</div>";
+                                echo "<div id='showPrenomProfil' class='card-body text-center text-info'>";
+                                    echo $compte->getFirstname();
+                                echo "</div>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "<br>";
+
+
+
+                echo "<div class='row'>";
+                echo "<div class='col'>";
+                    echo "<div class='card border-info'>";
+                        echo "<div class='text-center font-weight-bold card-header'>";
+                            echo "<span class='fa fa-envelope-o'></span> Adresse E-mail :";
+                            echo "</div>";
+                        echo "<div id='showMailProfil' class='card-body text-center text-info'>";
+                            echo $compte->getEMail();
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "<div class='col'>";
+                    echo "<div class='card border-info'>";
+                        echo "<div class='text-center font-weight-bold card-header'>";
+                            echo "<span class='fa fa-phone'></span> Telephone :";
+                        echo "</div>";
+                        echo "<div id='showTelProfil' class='card-body text-center text-info'>";
+                            echo "+33 ".$compte->getPhone();
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+            ?>
+
+
+            <hr>
+
+            <div class="row">
+                <div class="col">
+
+                    <div class="card border-info" >
+                        <div class="card-header font-weight-bold">Stockage contrat <span class="fa fa-thermometer-half"></span> </div>
+                        <div class="card-body text-info">
+                            <h5 class="card-title">Vous utilisez actuellement xx% d'espace max.</h5>
+                            <p class="card-text">
+                                <div class="progress blue">
+                                    <span class="progress-left">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                        <span class="progress-right">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                        <div class="progress-value">90%</div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                <div class="col">
+
+                    <div class="card border-info">
+                        <div class="card-header font-weight-bold">Stockage e-mails <span class="fa fa-thermometer-half"></span> </div>
+                        <div class="card-body text-info">
+                            <h5 class="card-title">Vous utilisez actuellement xx% d'espace max.</h5>
+                            <p class="card-text">
+                                <div class="progress yellow">
+                                    <span class="progress-left">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                            <span class="progress-right">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <div class="progress-value">75%</div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+</main>

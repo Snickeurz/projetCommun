@@ -1,0 +1,55 @@
+<!-- Affiche la liste des notications dans le profil -->
+<main class="l-main hideDisplay" id="listeNotifications">
+    <div class="content-wrapper content-wrapper--with-bg">
+        <h1 class="page-title bg-info">CENTRE DE NOTIFICATIONS<span class="fa fa-alert bg-bell"></span></h1>
+        <div class="page-content">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">DATE <span class="fa fa-calendar"></span> </th>
+                    <th scope="col">ENTREPRISE <span class="fa fa-home"></span> </th>
+                    <th scope="col">DESCRIPTION <span class="fa fa-question"></span> </th>
+                    <th scope="col">ACTION<span class="fa fa-target"></span> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                 if(!empty($notifications))
+                 {
+                     foreach($notifications as $notif)
+                     {
+                        echo "<tr>";
+                            echo "<td scope='row'>";
+                                echo $notif[0]; //id
+                                echo "</td>";
+                            echo "<td>";
+                                echo $notif[1];
+                                echo "</td>";
+                            echo "<td>";
+                                echo "id -> ".$notif[5]."<br>Nom : ";
+                                echo AccountManager::getNameById($notif[5]);
+                                echo "</td>";
+                            echo "<td>";
+                                echo $notif[3];
+                                echo "</td>";
+                            echo "<td>";
+                                echo "<a href='./index.php?uc=redirect&ac=contrat&show=1' class='btn btn-info'><span class='fa fa-eye'></span> Voir le contrat concerné</a></td>";
+                        echo "</tr>";
+                     }
+                }
+                else
+                {
+                    echo "<tr>";
+                    echo "Pas de notifications";
+                    echo "</tr>";
+                }
+                ?>
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</main>

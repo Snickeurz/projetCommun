@@ -1,0 +1,73 @@
+
+<main class="l-main" id="formContrat" style="display:none;">
+    <div class="content-wrapper content-wrapper--with-bg">
+        <h1 class="page-title bg-info">CREER UN CONTRAT <span class="fa fa-plus bg-info"></span></h1>
+        <div class="page-content">
+
+
+            <div class="card text-center border-info">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Importer un nouveau contrat</h5>
+                    <p class="card-text">
+                        <form class="form-horizontal" method="post" action="./index.php?uc=contrat&ac=addContrat" enctype="multipart/form-data">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                            <fieldset>
+                                <div class="row">
+                                    <input type="text" id="details" name="details" class="full-width" placeholder="Ajoutez une description..">
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label font-weight-bold" for="selectClient">Client</label>
+                                            <div>
+                                                    <select id="selectClient" name="selectClient" class="form-control center-block">
+                                                    <option value="">-- Choix client --</option>
+                                                    <?php
+                                                        foreach($listeClient as $client)
+                                                        {
+                                                            echo "<option value=$client[0]>$client[1]</option>";
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- File Button -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label font-weight-bold" for="filebutton">Contrat</label>
+                                            <div>
+                                                <input id="filebutton" name="contrat" class="input-file" type="file">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- Button (Double) -->
+                                <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col">
+                                        <button id="buttonAnnuler" name="buttonAnnuler" class="btn btn-danger">
+                                            Annuler <span class="fa fa-minus"></span>
+                                        </button>
+                                        <button type="submit" id="buttonValider" name="createContrat" class="btn btn-success">
+                                            Créer le contrat <span class="fa fa-plus"></span>
+                                        </button>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </p>
+
+                </div>
+                <div class="card-footer text-muted">
+                    version 2.5.60
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
