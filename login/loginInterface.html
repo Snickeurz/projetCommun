@@ -1,5 +1,25 @@
 <link rel="stylesheet" href="./ressources/css/login.css"/>
 <script src="./ressources/js/login.js"></script>
+
+<?php
+
+if(isset($_GET["login"]))
+{
+    echo "<div class='alert alert-primary' role='alert'>";
+    switch($_GET["login"])
+    {
+        case 'created':
+            echo " Votre compte a été crée avec succès !";
+        break;
+        default:
+            echo " Une erreur est survenue !";
+        break;
+    }
+    echo "</div>";
+}
+
+?>
+
 <section class="container">
     <article class="half">
         <h1>Connexion</h1>

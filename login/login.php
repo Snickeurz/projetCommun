@@ -39,13 +39,13 @@ elseif (isset($_POST["mdp"])&isset($_POST["mail"])&isset($_POST["signup"]))
         /**
          * Rediriger l'utlisateur vers lécran de log et l'informer de la création du compte.
          */
-     //  echo '<script>window.location.replace("./index.php?login=created");</script>';
+       echo '<script>window.location.replace("./index.php?login=created");</script>';
 	}
 	else{
         /**
          * Rediriger l'utlisateur vers lécran de log avec erreyr.
          */
-      // echo '<script>window.location.replace("./index.php?login=failtocreate");</script>';
+        echo '<script>window.location.replace("./index.php?login=failtocreate");</script>';
 	}
 }
 else

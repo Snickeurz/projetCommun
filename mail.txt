@@ -1,0 +1,18 @@
+www.hotmail.com
+
+applicationcontrat@hotmail.com
+Projetcommun2018
+
+
+edit :  C:\wamp\bin\apache\apache2.4.9\bin\php.ini
+
+[mail function]
+; For Win32 only.
+; http://php.net/smtp
+SMTP = smtp.it-connect.fr
+; http://php.net/smtp-port
+smtp_port = 25
+
+; For Win32 only.
+; http://php.net/sendmail-from
+sendmail_from = php@it-connect.fr
