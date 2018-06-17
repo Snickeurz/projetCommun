@@ -10,8 +10,7 @@
 
 if(isset($_POST['signer']))
 {
-    signeContrat($_POST['idContrat']);
-
+    signeContrat($_POST['id_contrat_to_valide']);
 }
 elseif (isset($_POST['createContrat']))
 {
@@ -67,6 +66,11 @@ function deleteContrat($idContrat)
 
 function signeContrat($idContrat)
 {
-    ContratManager::updateSignature($idContrat);
-    echo '<script>window.location.replace("./index.php?uc=redirect&ac=profil&edit=contrat_signe");</script>';
+    if(ContratCUD::updateSignature($idContrat))
+    {
+        echo '<script>window.location.replace("./index.php?uc=profil&ac=show&edit=contrat_signe");</script>';
+    }
+    else{
+        echo '<script>window.location.replace("./index.php?uc=profil&ac=show&edit=contrat_non_signe");</script>';
+    }
 }

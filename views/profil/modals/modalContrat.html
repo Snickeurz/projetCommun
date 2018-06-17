@@ -12,14 +12,27 @@ Fait son apparition lors d'un click sur le boutton "signer le contrat" de la pag
                 </button>
             </div>
             <div class="modal-body">
-                <div style="text-align: center;">
-                    <a class="btn btn-info">Signez votre contrat<span class="fa fa-check"></span></a>
+
+                <div class="text-center">
+                    <form name="signer_contrat" action="./index.php?uc=contrat&ac=signerContrat" method="POST">
+                        <input hidden value="signer" name="signer">
+                        <input hidden class="validation_contrat" id="id_contrat_to_valide" >
+                        <button type="submit" class="btn btn-info">
+                            Signez votre contrat<span class="fa fa-check"></span>
+                        </button>
+                    </form>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $('#signerContrat').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var recipient = button.data('data-id');
+    })
+</script>

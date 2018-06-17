@@ -44,7 +44,7 @@ VALUES (:contratUrl,:nomContrat,:idClient,:idEntreprise,:defaultStatus,:dateuplo
     {
         $monPdo = MonPdo::getInstance();
         $signature = 1;
-        $maRequete = $monPdo->prepare("UPDATE contrat SET status= :signature WHERE id = $idContrat");
+        $maRequete = $monPdo->prepare("UPDATE contrat SET status= :signature WHERE id = :idContrat");
         $maRequete->bindParam(":signature",$signature);
         $maRequete->bindParam(":idContrat",$idContrat);
         $maRequete->execute();

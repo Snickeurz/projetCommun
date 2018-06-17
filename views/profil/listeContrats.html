@@ -1,7 +1,9 @@
 <!-- Affiche la liste des contrats dans le profil -->
 <main class="l-main" id="listeContrats">
     <div class="content-wrapper content-wrapper--with-bg">
-        <h1 class="page-title no-margin">MES CONTRATS
+        <h1 class="page-title no-margin">
+            <br>
+            MES CONTRATS
             <input type="text" id="myInput" onkeyup="myFunction();" placeholder="Rechercher par nom..">
         </h1>
         <div class="page-content no-border">
@@ -56,8 +58,10 @@
                                     echo "<a href='./index.php?uc=contrat&ac=details&show=$idContrat' class='btn btn-default'> Consulter </a>";
                                     if($role && !$collectionContrat->getObjectAtIndex($i)->isStatus())
                                     {
-                                        echo "<button class='btn btn-info' name='signer'> Signer </button>";
-
+                                        echo "<form action='./index.php?uc=contrat&ac=signerContrat' method='POST'>";
+                                            echo "<input hidden name='id_contrat_to_valide' value='$idContrat'> ";
+                                            echo "<button type='submit' class='btn btn-info' name='signer'> Signer </button>";
+                                        echo "</form>";
                                     }
                                     else if(!$role)
                                     {

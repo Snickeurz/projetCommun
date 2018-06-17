@@ -121,6 +121,9 @@ else
                 case 'addContrat':
                     include("controler/contrat/ContratCUD.php");
                     break;
+                case 'signerContrat':
+                    include("controler/contrat/ContratCUD.php");
+                    break;
                 default:
                     break;
             }
