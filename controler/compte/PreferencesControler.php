@@ -29,9 +29,9 @@ if(isset($_POST["recevoir_news_letter"])&&!empty($_POST["recevoir_news_letter"])
 //Appel méthode pour paramétrer les prefs
 if(PreferenceManager::setPreferences($_SESSION["id"],$getNotif,$getNewsLetter,$getMails) && isset($_POST["modif_traitement"]))
 {
-    echo '<script>window.location.replace("./index.php?uc=profil&ac=show&editPref=true");</script>';
+    echo '<script>window.location.replace("./index.php?uc=profil&ac=show&edit=pref_true");</script>';
 }
 else
 {
-    echo '<script>window.location.replace("./index.php?uc=profil&ac=show&editPref=false");</script>';
+    echo '<script>window.location.replace("./index.php?uc=profil&ac=show&edit=pref_false);</script>';
 }

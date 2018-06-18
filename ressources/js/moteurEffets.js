@@ -22,19 +22,22 @@ $(function() {
      */
     var parametreSend = getUrlParameter('send')
     // Si on recupère bien le paramètre send (ndrl il existe)
-    if(parametreSend)
+    switch(parametreSend)
     {
-        if(parametreSend=="true")
-        {
+        case '':
             $("#display_sucess_send_contact").html("<strong>Votre message a bien été envoyé!</strong> Nous vous contacterons dès que possible !<br>\n Nous vous remercions d'avance pour votre patience.");
-        }
-        else
-        {
+            // Display la div alert dans contact.html
+            $("#envoie_reussit").show();
+            break;
+        case '':
             $("#display_sucess_send_contact").html("<strong>Un problème est survenu lors de l'envoie , merci de réessayer plus tard!</strong> Nous mettons tout en oeuvre pour résoudre la panne asap !<br>\n Nous vous remercions d'avance pour votre patience.");
-        }
-        // Display la div alert dans contact.html
-        $("#envoie_reussit").show();
+            // Display la div alert dans contact.html
+            $("#envoie_reussit").show();
+            break;
+        default:
+            break;
     }
+
 
     /**
      * Permet d'afficher le message de succès d'édition dans la profile page :
@@ -54,13 +57,21 @@ $(function() {
             $("#display_success_edit").html("<strong>Nom/Prénom modifié</strong> Nous avons bien prit en compte votre modification de prénom/nom!<br>");
             $("#editProfilSuccess").show();
             break;
-        case 'param':
-            $("#display_success_edit").html("<strong>Préférences modifié</strong> Nous avons bien prit en compte vos modifications concernant vos préférences !<br>");
-            $("#editProfilSuccess").show();
-            break;
         case 'contrat_signe':
             $("#display_success_edit").html("<strong>Contrat signé</strong> Nous avons bien prit en compte la signature de votre contrat !<br>");
             $("#editProfilSuccess").show();
+            break;
+        case 'contrat_non_signe':
+            $("#display_fail_edit").html("<strong>Contrat non signé</strong> Impossible de signer le contrat !<br>");
+            $("#editProfilFail").show();
+            break;
+        case 'pref_true':
+            $("#display_success_edit").html("<strong>Préférences modifiées</strong>  Les changements ont bien été pris en compte !<br>");
+            $("#editProfilSuccess").show();
+            break;
+        case 'pref_false':
+            $("#display_fail_edit").html("<strong>Préférences non modifiées</strong> Un problème est survenue !<br>");
+            $("#editProfilFail").show();
             break;
         default:
             break;
