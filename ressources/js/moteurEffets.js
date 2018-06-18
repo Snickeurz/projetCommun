@@ -49,13 +49,21 @@ $(function() {
             $("#display_success_edit").html("<strong>Mot de passe modifié</strong> Nous avons bien prit en compte votre modification de mot de passe !<br>");
             $("#editProfilSuccess").show();
             break;
-        case 'coord':
+        case 'coord_true':
             $("#display_success_edit").html("<strong>Coordonnées modifié</strong> Nous avons bien prit en compte votre modification d'email et de téléphone !<br>");
             $("#editProfilSuccess").show();
             break;
-        case 'names':
-            $("#display_success_edit").html("<strong>Nom/Prénom modifié</strong> Nous avons bien prit en compte votre modification de prénom/nom!<br>");
+        case 'coord_false':
+            $("#display_fail_edit").html("<strong>Coordonnées non modifié</strong> Impossible de modifier l'email et le téléphone !<br>");
+            $("#editProfilFail").show();
+            break;
+        case 'names_true':
+            $("#display_success_edit").html("<strong>Nom/Prénom modifié</strong> Nous avons bien prit en compte votre modification de votre prénom et nom!<br>");
             $("#editProfilSuccess").show();
+            break;
+        case 'names_false':
+            $("#display_fail_edit").html("<strong>Nom/Prénom non modifié</strong> Impossible de changer le nom/prénom !<br>");
+            $("#editProfilFail").show();
             break;
         case 'contrat_signe':
             $("#display_success_edit").html("<strong>Contrat signé</strong> Nous avons bien prit en compte la signature de votre contrat !<br>");

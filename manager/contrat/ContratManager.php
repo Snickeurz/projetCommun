@@ -21,11 +21,12 @@ class ContratManager
      * Récupère les contrats d'une entreprise
      *
      * @param int $id session
+     * @param string $filtre session
      */
-    public static function constructContratFromDB($id, $role)
+    public static function constructContratFromDB($id, $filtre)
     {
         $monPdo = MonPdo::getInstance();
-        $query = "SELECT id, contratUrl, nomContrat, idClient, idEntreprise, status, dateupload FROM contrat WHERE ".$role." = :id";
+        $query = "SELECT id, contratUrl, nomContrat, idClient, idEntreprise, status, dateupload FROM contrat WHERE ".$filtre." = :id";
         $listeContrats = $monPdo->prepare($query);
         $listeContrats->bindParam(":id", $id, PDO::PARAM_INT);
         $listeContrats->execute();

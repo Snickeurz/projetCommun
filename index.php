@@ -27,6 +27,7 @@ include ("model/collection/Collection.php");
  * Compte
  */
 include("manager/compte/AccountManager.php");
+include("manager/compte/EditManager.php");
 include("manager/compte/DependencyManager.php");
 include("manager/compte/PreferenceManager.php");
 include ("manager/compte/LoginManager.php");
@@ -139,10 +140,12 @@ else
                     include("controler/contrat/ContratControler.php");
                     include("views/profil/interface.html");
                     break;
-					
 				case 'modificationPreferences':
 					include("controler/compte/PreferencesControler.php");
 					break;
+                case 'edit':
+                    include("controler/compte/EditProfil.php");
+                    break;
                 default:
                     break;
             }

@@ -10,7 +10,7 @@
 
                 <h4 class="header-title">MODIFIER PRENOM & NOM :</h4>
                 <hr class="bg-info">
-                <form action="./index.php?uc=profil&action=editNames"  method="POST" class="">
+                <form action="./index.php?uc=profil&ac=edit"  method="POST" class="">
                     <div class="form-group">
                         <input type="text" class="form-control arrondi" id="nom" name="nom" placeholder="Nom.." required="" autofocus="">
                         <br>
@@ -19,6 +19,7 @@
                     <div class="form-group">
                         <input type="submit" class="btn btn-default btn-send pull-right arrondi" value="Mettre à jour"></input>
                     </div>
+                    <input hidden name="edit_names">
                 </form>
             </div>
             <br>
@@ -26,7 +27,7 @@
             <div>
                 <h4 class="header-title">MODIFIER LES COORDONNEES :</h4>
                 <hr class="bg-info">
-                <form action="./index.php?uc=profil&action=editCoord"  method="POST" class="">
+                <form action="./index.php?uc=profil&ac=edit"  method="POST" class="">
                     <div class="form-group">
                         <input type="text" class="form-control arrondi" id="email" name="email" placeholder="Adresse email.." required="" autofocus="">
                         <br>
@@ -35,6 +36,7 @@
                     <div class="form-group">
                         <input type="submit" class="btn btn-default btn-send pull-right arrondi" value="Mettre à jour"></input>
                     </div>
+                    <input hidden name="edit_coord">
                 </form>
             </div>
 

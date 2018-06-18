@@ -25,4 +25,3 @@ foreach ($contrats as $contrat)
     );
     $collectionContrat->addInCollection($contratModel);
 }
-

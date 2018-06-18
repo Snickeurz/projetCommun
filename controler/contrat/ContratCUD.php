@@ -53,7 +53,6 @@ function uploadFile($uploadDir,$uploadFile)
     if (move_uploaded_file($_FILES['contrat']['tmp_name'], $uploadFile)) {
         $checkMove = true;
     }
-
     return $checkMove;
 }
 
