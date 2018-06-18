@@ -125,6 +125,9 @@ else
                 case 'signerContrat':
                     include("controler/contrat/ContratCUD.php");
                     break;
+                case 'delete':
+                    include ("controler/contrat/ContratCUD.php");
+                    break;
                 default:
                     break;
             }
@@ -145,6 +148,9 @@ else
 					break;
                 case 'edit':
                     include("controler/compte/EditProfil.php");
+                    break;
+                case 'addclient':
+                    include("controler/compte/AddClient.php");
                     break;
                 default:
                     break;

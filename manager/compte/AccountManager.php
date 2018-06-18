@@ -100,6 +100,22 @@ class AccountManager
     }
 
     /**
+     * Récupère le prenom de la personne en fonction d'un ID
+     *
+     * @param $arg l'ID de la personne/entreprise
+     * @return mixed le nom de la personne
+     */
+    public static function getFirstNameById($arg)
+    {
+        $monPdo = MonPdo::getInstance();
+        $fn = $monPdo->prepare("SELECT firstname FROM account WHERE id = :id");
+        $fn->bindParam(":id",$arg);
+        $fn->execute();
+        return $fn->fetchColumn();
+    }
+
+
+    /**
      * Permet de changer le mot de passe actuel par celui reçu en paramètre
      * @param string $new_password le nouveau mot de passe
      * @return mixed l'état
@@ -155,5 +171,32 @@ class AccountManager
         return $mail->fetchColumn();
     }
 
+    /**
+     * Récupère tous les utilisateurs de type client.
+     */
+    public static function getAllUtilisateurs()
+    {
+     $monPdo = MonPdo::getInstance();
+     $role = 1;
+     $utilisateurs = $monPdo->prepare("SELECT id, firstname, lastname FROM account WHERE role=:role");
+     $utilisateurs->bindParam(":role",$role,PDO::PARAM_BOOL);
+     $utilisateurs->execute();
+     return $utilisateurs->fetchAll();
+    }
 
+    /**
+     * Permet à une entreprise d'ajouter des clients.
+     *
+     * @param int $idEntreprise
+     * @param int $idClient
+     * @return mixed
+     */
+    public static function addRelation($idEntreprise, $idClient)
+    {
+        $monPdo = MonPdo::getInstance();
+        $insert = $monPdo->prepare("INSERT INTO relation_client_entreprise (idClient, idEntreprise) VALUES (:idClient, :idEntreprise)");
+        $insert->bindParam(":idClient",$idClient, PDO::PARAM_INT);
+        $insert->bindParam(":idEntreprise",$idEntreprise, PDO::PARAM_INT);
+        return $insert->execute();
+    }
 }

@@ -16,9 +16,8 @@ elseif (isset($_POST['createContrat']))
 {
     newContrat();
 }
-elseif (isset($_POST['supprimer']))
+elseif (isset($_POST['supprimer_contrat']))
 {
-
     deleteContrat($_POST['idContrat']);
 }
 
@@ -58,8 +57,18 @@ function uploadFile($uploadDir,$uploadFile)
 
 function deleteContrat($idContrat)
 {
-    ContratManager::deleteContrat($idContrat);
-    echo '<script>window.location.replace("./index.php?uc=redirect&ac=profil&deletecontrat=true");</script>';
+    $path = ContratManager::getPath($idContrat);
+    if(file_exists($path))
+    {
+        unlink($path);
+    }
+    if(ContratCUD::deleteContrat($idContrat))
+    {
+        echo '<script>window.location.replace("./index.php?uc=profil&ac=show&deletecontrat=true");</script>';
+    }
+    else{
+        echo '<script>window.location.replace("./index.php?uc=profil&ac=show&deletecontrat=false");</script>';
+    }
 }
 
 

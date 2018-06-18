@@ -33,4 +33,18 @@ class ContratManager
         return $listeContrats->fetchAll();
     }
 
+    /**
+     * Récupère l'emplacement physique du fichier.
+     *
+     * @param int $idContrat
+     * @return mixed
+     */
+    public static function getPath($idContrat)
+    {
+        $monPdo = MonPdo::getInstance();
+        $path = $monPdo->prepare("SELECT contratUrl FROM contrat WHERE id = :id");
+        $path->bindParam(":id",$idContrat,PDO::PARAM_INT);
+        $path->execute();
+        return $path->fetchColumn();
+    }
 }

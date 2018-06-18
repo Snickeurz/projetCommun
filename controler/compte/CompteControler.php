@@ -18,6 +18,7 @@ $notifications = AccountManager::getAllNotifs($_SESSION["id"]);
 if(!$role)
 {
     $listeClients = DependencyManager::getClients($_SESSION["id"]);
+    $listeUtilisateurs = AccountManager::getAllUtilisateurs();
 }
 else{
     $listeEntreprises = DependencyManager::getEnterprises($_SESSION["id"]);

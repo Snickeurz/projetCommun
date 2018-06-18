@@ -17,7 +17,7 @@ class DependencyManager
     public static function getClients($idEntreprise)
     {
         $monPdo = MonPdo::getInstance();
-        $listeClients = $monPdo->query("SELECT id, firstname, lastname FROM account WHERE id IN (SELECT idClient FROM contrat WHERE idEntreprise = $idEntreprise)");
+        $listeClients = $monPdo->query("SELECT id, firstname, lastname FROM account WHERE id IN (SELECT idClient FROM relation_client_entreprise WHERE idEntreprise = $idEntreprise)");
         return $listeClients->fetchAll();
     }
 

@@ -37,7 +37,15 @@
                                 echo $collectionContrat->getObjectAtIndex($i)->getNomContrat();
                                 echo "</td>";
                                 echo "<td>";
-                                echo AccountManager::getNameById($collectionContrat->getObjectAtIndex($i)->getIdEntreprise());
+                                if($role)
+                                {
+                                    echo AccountManager::getNameById($collectionContrat->getObjectAtIndex($i)->getIdEntreprise());
+                                }
+                                else{
+                                    echo AccountManager::getNameById($collectionContrat->getObjectAtIndex($i)->getIdClient());
+                                    echo " ";
+                                    echo AccountManager::getFirstNameById($collectionContrat->getObjectAtIndex($i)->getIdClient());
+                                }
                                 echo "</td>";
                                 echo "<td>";
                                 echo $collectionContrat->getObjectAtIndex($i)->getDateUpload();
@@ -64,8 +72,9 @@
                                     }
                                     else if(!$role)
                                     {
-                                    echo "<form method='POST' action='./controler/ContratControler.php'>";
+                                    echo "<form method='POST' action='./index.php?uc=contrat&ac=delete'>";
                                         echo "<input type = 'hidden' name='idContrat' value=$idContrat>";
+                                        echo "<input hidden name='supprimer_contrat'>";
                                         echo "<button class='btn btn-danger'><span class='fa fa-trash'></span> Supprimer</button>";
                                     echo "</form>";
                                     }

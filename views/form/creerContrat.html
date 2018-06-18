@@ -25,7 +25,8 @@
                                                     <?php
                                                         foreach($listeClient as $client)
                                                         {
-                                                            echo "<option value=$client[0]>$client[1]</option>";
+                                                            $nom =$client[1]." ".$client[2];
+                                                            echo "<option value=$client[0]>$nom</option>";
                                                         }
                                                     ?>
                                                 </select>
