@@ -37,7 +37,14 @@
                 <div class="row client-item">
                     <div class="col-md-3 separateur-vertical"><img src="//placehold.it/250x250" class="img-responsive center-block arrondi"></div>
                     <div class="col-md-9">
-                        <h2 class="titre_liste_client"><?php echo $client[1].$client[2] ?></h2>
+                        <h2 class="titre_liste_client"><?php echo $client[1].$client[2] ?>
+                            <span class="pull-right">
+                                <form action="./index.php?uc=client&ac=delete" method="POST">
+                                    <button type="submit" class="btn btn-warning" onclick="alert('Êtes vous sûr ? Cela supprimera votre client ainsi que tout les contrats associé.')">&times;</button>
+                                    <input hidden name="idClientToDelete" value="$client[0]">
+                                </form>
+                            </span>
+                        </h2>
                         <p class="description_client">
                         <ul>
                             <li>Nombre de contrat associé : <?php

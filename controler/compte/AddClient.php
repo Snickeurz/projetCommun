@@ -11,6 +11,8 @@ if(isset($_POST["add_client"]))
     {
         $message = "L'entreprise ".AccountManager::getNameById($_SESSION["id"])." vous a ajouté à sa liste de partenaire.";
         NotificationManager::newNotification("Ajout partenaire",$message, "./index.php?uc=profil&ac=show", $_POST["idClientToAdd"]);
+        $message = "Vous venez d'ajouter le client : ".AccountManager::getNameById($_POST["idClientToAdd"])." à votre liste de clients";
+        NotificationManager::newNotification("Ajout partenaire",$message, "./index.php?uc=profil&ac=show", $_SESSION["id"]);
         echo '<script>window.location.replace("./index.php?uc=profil&ac=show&edit=add_client_true");</script>';
     }
     else{
