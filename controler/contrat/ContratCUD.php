@@ -30,8 +30,17 @@ function newContrat()
     $idEntreprise = $_SESSION["id"];
     $uploadDir = "./uploads/contrats/".AccountManager::getNameById($idClient);
     $uploadFile = $uploadDir ."/".basename($_FILES['contrat']['name']);
-    if(ContratCUD::addContrat($uploadFile,$nomContrat,$idClient,$idEntreprise)&&uploadFile($uploadDir,$uploadFile))
+    $description = $_POST["description"];
+    var_dump($description);
+    if(ContratCUD::addContrat($uploadFile,$nomContrat,$idClient,$idEntreprise, $description)&&uploadFile($uploadDir,$uploadFile))
     {
+        $message = "L'entreprise <span style='color:red;'>".AccountManager::getNameById($_SESSION["id"])." </span>vous a envoyé un contrat";
+        NotificationManager::newNotification("Nouveau contrat", $message, "./index.php?uc=profil&ac=show", $idClient);
+        if(AccountManager::getRole($_SESSION["id"])==0)
+        {
+            $message = "Vous venez d'ajouter le contrat ".$nomContrat." pour le client ".AccountManager::getNameById($idClient);
+            NotificationManager::newNotification("Ajout d'un contrat", $message, "./index.php?uc=profil&ac=show", $_SESSION["id"]);
+        }
         echo '<script>window.location.replace("./index.php?uc=profil&ac=show&information=uploadOk");</script>';
     }
     else
@@ -76,6 +85,9 @@ function signeContrat($idContrat)
 {
     if(ContratCUD::updateSignature($idContrat))
     {
+        $message = "Le contrat n°".$idContrat." - ".ContratManager::getName($idContrat)." - vient d'être signé.";
+        $idEntreprise = ContratManager::getIdEntrepriseByIdContrat($idContrat);
+        NotificationManager::newNotification("Signature de contrat", $message, "./index.php?uc=profil&ac=show", $idEntreprise);
         echo '<script>window.location.replace("./index.php?uc=profil&ac=show&edit=contrat_signe");</script>';
     }
     else{

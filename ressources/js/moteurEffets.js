@@ -2,15 +2,17 @@
  * Cette fonction s'execute lorsque la page est dans l'état ready().
  */
 $(function() {
+
     /**
      *
      * Cacher le slider principal sauf pour certaines pages
      */
-    var parametreAC = getUrlParameter('ac');
-    if(parametreAC!="home" && parametreAC!="service")
+    var parametreUC = getUrlParameter('uc');
+    if(parametreUC!=="accueil" && parametreUC!="service" && parametreUC!="help")
     {
         $("#carouselLogo").hide();
-        if(parametreAC=="profil")
+     //   $(".carousel").hide();
+        if(parametreUC==="profil")
         {
             $("#form_search_navbar").hide();
         }
@@ -20,16 +22,16 @@ $(function() {
      * Concerne contact.html
      * Affiche le succès ou l'échec de l'envoie de l'email.
      */
-    var parametreSend = getUrlParameter('send')
+    var parametreSend = getUrlParameter('send');
     // Si on recupère bien le paramètre send (ndrl il existe)
     switch(parametreSend)
     {
-        case '':
+        case 'message_send':
             $("#display_sucess_send_contact").html("<strong>Votre message a bien été envoyé!</strong> Nous vous contacterons dès que possible !<br>\n Nous vous remercions d'avance pour votre patience.");
             // Display la div alert dans contact.html
             $("#envoie_reussit").show();
             break;
-        case '':
+        case 'message_not_send':
             $("#display_sucess_send_contact").html("<strong>Un problème est survenu lors de l'envoie , merci de réessayer plus tard!</strong> Nous mettons tout en oeuvre pour résoudre la panne asap !<br>\n Nous vous remercions d'avance pour votre patience.");
             // Display la div alert dans contact.html
             $("#envoie_reussit").show();

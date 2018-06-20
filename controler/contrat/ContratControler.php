@@ -21,7 +21,7 @@ else{
 foreach ($contrats as $contrat)
 {
     $contratModel = new ContratModel(
-        $contrat[0],$contrat[1],$contrat[2],$contrat[3],$contrat[4],$contrat[5],$contrat[6]
+        $contrat[0],$contrat[1],$contrat[2],$contrat[3],$contrat[4],$contrat[5],$contrat[6], $contrat[7]
     );
     $collectionContrat->addInCollection($contratModel);
 }

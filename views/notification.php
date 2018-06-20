@@ -3,18 +3,19 @@
     <div class="content">
         <div class="cardTrick">
             <div class="pull-right"> <a href="#" id="close_popUp_notif"><span class="fa fa-close"></a></div>
-            <div class="firstinfo"><img src="/projetCommunV2/ressources/img/notif.png"/>
+            <div class="firstinfo"><img src="./ressources/img/notif.png"/>
                 <div class="profileinfo">
                     <h1>Notifications</h1>
-                    <h3><span class="fa fa-bell"></span>XX notifications non lues</h3>
+                    <h3><span class="fa fa-bell"></span> <?php echo NotificationManager::countNotification($_SESSION["id"])?> notifications - total</h3>
                     <p class="bio">
-                        <a href="">
-                            - notification n°1
-                        </a>
-                        <br>
-                        <a href="">
-                            - notification n°2
-                        </a>
+                        <?php
+                        foreach($notifications as $notif)
+                        {
+                            $lien = $notif["lien"];
+                            $titre = $notif["titre"];
+                            echo "<a href='$lien'>$titre</a><br>";
+                        }
+                        ?>
                     </p>
                 </div>
             </div>

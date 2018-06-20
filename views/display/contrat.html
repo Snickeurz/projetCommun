@@ -26,8 +26,8 @@
                 </tr>
                 <tr>
                     <th scope="row"><span class="fa fa-eye"></span></th>
-                    <td>06/02/16</td>
-                    <td>Vous avez signé votre contrat</td>
+                    <td>Description contrat</td>
+                    <td><?php echo $collectionContrat->getObjectAtIndex($collectionContrat->findObjectByIdContrat($_GET["show"]))->getDescription(); ?></td>
                 </tr>
                 </tbody>
             </table>

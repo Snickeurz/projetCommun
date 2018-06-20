@@ -15,9 +15,9 @@
                 </thead>
                 <tbody>
                 <?php
-                 if(!empty($notifications))
+                 if(!empty($allNotifications))
                  {
-                     foreach($notifications as $notif)
+                     foreach($allNotifications as $notif)
                      {
                         echo "<tr>";
                             echo "<td scope='row'>";
@@ -34,22 +34,19 @@
                                 echo $notif[3];
                                 echo "</td>";
                             echo "<td>";
-                                echo "<a href='./index.php?uc=redirect&ac=contrat&show=1' class='btn btn-info'><span class='fa fa-eye'></span> Voir le contrat concerné</a></td>";
+                                echo "<a href='./index.php?uc=contrat&ac=show' class='btn btn-info'><span class='fa fa-eye'></span> Voir le contrat concerné</a></td>";
                         echo "</tr>";
                      }
                 }
                 else
                 {
-                    echo "<tr>";
-                    echo "Pas de notifications";
-                    echo "</tr>";
+                echo "<div class='alert alert-warning' role='alert'> Aucune notification pour l'instant .. </div>";
                 }
+
                 ?>
 
                 </tbody>
             </table>
-
-
         </div>
     </div>
 </main>

@@ -6,6 +6,14 @@
             <input type="text" id="myInput" onkeyup="myFunction();" placeholder="Rechercher par nom..">
         </h1>
         <div class="page-content no-border">
+            <?php
+            if($collectionContrat->getSize()==0)
+            {
+
+            echo "<div class='alert alert-warning' role='alert'> Aucun contrat pour l'instant .. </div>";
+
+            }
+            ?>
             <div class="span5">
                 <table class="table table-striped table-condensed" id="myTable">
                     <thead>

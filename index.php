@@ -46,6 +46,11 @@ include("manager/support/FaqManager.php");
 include("model/support/FaqModel.php");
 
 /**
+ * NOTIFICATIONS
+ */
+include("manager/support/NotificationManager.php");
+
+/**
  * Helper methodes
  */
 include("helperMethodes.php");
@@ -102,7 +107,7 @@ else
     switch ($uc)
     {
         case 'accueil':
-            include('views/notification.html');
+            include('views/notification.php');
             include('views/home.html');
             break;
 

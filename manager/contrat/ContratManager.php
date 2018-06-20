@@ -26,7 +26,7 @@ class ContratManager
     public static function constructContratFromDB($id, $filtre)
     {
         $monPdo = MonPdo::getInstance();
-        $query = "SELECT id, contratUrl, nomContrat, idClient, idEntreprise, status, dateupload FROM contrat WHERE ".$filtre." = :id";
+        $query = "SELECT id, contratUrl, nomContrat, idClient, idEntreprise, status, dateupload, description FROM contrat WHERE ".$filtre." = :id";
         $listeContrats = $monPdo->prepare($query);
         $listeContrats->bindParam(":id", $id, PDO::PARAM_INT);
         $listeContrats->execute();
@@ -46,5 +46,35 @@ class ContratManager
         $path->bindParam(":id",$idContrat,PDO::PARAM_INT);
         $path->execute();
         return $path->fetchColumn();
+    }
+
+    /**
+     * Récupère le nom d'un contrat en fonction d'un ID.
+     *
+     * @param int $idContrat l'id du contrat
+     * @return mixed
+     */
+    public static function getName($idContrat)
+    {
+        $monPdo = MonPdo::getInstance();
+        $nameContrat = $monPdo->prepare("SELECT nomContrat FROM contrat WHERE id = :id");
+        $nameContrat->bindParam(":id",$idContrat,PDO::PARAM_INT);
+        $nameContrat->execute();
+        return $nameContrat->fetchColumn();
+    }
+
+    /**
+     * Retourne l'id d'une entreprise en fonction d'un id de contrat.
+     *
+     * @param int $idContrat l'id du contrat
+     * @return mixed
+     */
+    public static function getIdEntrepriseByIdContrat($idContrat)
+    {
+        $monPdo = MonPdo::getInstance();
+        $idEntreprise = $monPdo->prepare("SELECT idEntreprise FROM contrat WHERE id = :id");
+        $idEntreprise->bindParam(":id",$idContrat,PDO::PARAM_INT);
+        $idEntreprise->execute();
+        return $idEntreprise->fetchColumn();
     }
 }

@@ -13,8 +13,8 @@ $role = AccountManager::getRole($_SESSION["id"]);
 $name = $compte->getFirstname()." ".$compte->getlastname();
 $allInformations = AccountManager::getProfileInformation($_SESSION["id"]);
 $preferences = PreferenceManager::getPreferences($_SESSION["id"]);
-$notifications = AccountManager::getAllNotifs($_SESSION["id"]);
-
+$notifications = NotificationManager::getLastTwoNotifications($_SESSION["id"]);
+$allNotifications = NotificationManager::getAllNotifications($_SESSION["id"]);
 if(!$role)
 {
     $listeClients = DependencyManager::getClients($_SESSION["id"]);

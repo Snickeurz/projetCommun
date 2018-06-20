@@ -17,19 +17,20 @@ class ContratCUD
      * @param string $contratUrl
      * @return mixed
      */
-    public static function addContrat($contratUrl,$nomContrat,$idClient,$idEntreprise)
+    public static function addContrat($contratUrl,$nomContrat,$idClient,$idEntreprise, $description)
     {
         $monPdo = MonPdo::getInstance();
         $status = 0;
         $dateUpload = date("Y-m-d H:i:s");
-        $addContrat = $monPdo->prepare("INSERT INTO contrat(contratUrl,nomContrat,idClient,idEntreprise,status,dateupload) 
-VALUES (:contratUrl,:nomContrat,:idClient,:idEntreprise,:defaultStatus,:dateupload) ");
+        $addContrat = $monPdo->prepare("INSERT INTO contrat(contratUrl,nomContrat,idClient,idEntreprise,status,dateupload, description) 
+VALUES (:contratUrl,:nomContrat,:idClient,:idEntreprise,:defaultStatus,:dateupload, :description) ");
         $addContrat->bindValue(":contratUrl",$contratUrl);
         $addContrat->bindValue(":nomContrat",$nomContrat);
         $addContrat->bindValue(":idClient",$idClient);
         $addContrat->bindValue(":idEntreprise",$idEntreprise);
         $addContrat->bindValue(":defaultStatus",$status);
         $addContrat->bindValue(":dateupload",$dateUpload);
+        $addContrat->bindValue(":description",$description);
         return $addContrat->execute();
     }
 

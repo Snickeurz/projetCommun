@@ -44,18 +44,6 @@ class AccountManager
     }
 
     /**
-     * Cette méthode renvoie toutes les notifcations lié à l'utilisateur
-     * @return mixed
-     */
-    public static function getAllNotifs($id)
-    {
-        $monPdo = MonPdo::getInstance();
-        $notifications = $monPdo->prepare("SELECT * FROM notification WHERE idClient = :id");
-        $notifications->bindParam(":id",$id);
-        $notifications->execute();
-        return $notifications->fetchAll();
-    }
-    /**
      * Cette méthode récupère des informations sur l'utilsisateur
      * Nom, prenom, email & téléphone
      * @return mixed toutes les informations de l'utilisateur

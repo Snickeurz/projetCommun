@@ -36,6 +36,10 @@ class ContratModel
      * @var DateTime $dateUpload
      */
     private $dateUpload;
+    /**
+     * @var string $description
+     */
+    private $description;
 
     /**
      * ContratModel constructor.
@@ -47,7 +51,7 @@ class ContratModel
      * @param int $idEntreprise
      * @param bool $status
      */
-    public function __construct($id, $contratURL, $nomContrat, $idClient, $idEntreprise, $status, $dateUpload)
+    public function __construct($id, $contratURL, $nomContrat, $idClient, $idEntreprise, $status, $dateUpload, $description)
     {
         $this->id = $id;
         $this->contratURL = $contratURL;
@@ -56,6 +60,7 @@ class ContratModel
         $this->idEntreprise = $idEntreprise;
         $this->status = $status;
         $this->dateUpload = $dateUpload;
+        $this->description = $description;
     }
 
     /***********
@@ -172,6 +177,22 @@ class ContratModel
     public function setDateUpload($dateUpload)
     {
         $this->dateUpload = $dateUpload;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
 

@@ -13,7 +13,7 @@
                             <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                             <fieldset>
                                 <div class="row">
-                                    <input type="text" id="details" name="details" class="full-width" placeholder="Ajoutez une description..">
+                                    <input type="text" id="description" name="description" class="full-width" placeholder="Ajoutez une description.. (200 char. max)">
                                 </div>
                                 <div class="row">
                                     <div class="col">
@@ -21,8 +21,14 @@
                                             <label class="col-md-4 control-label font-weight-bold" for="selectClient">Client</label>
                                             <div>
                                                     <select id="selectClient" name="selectClient" class="form-control center-block">
-                                                    <option value="">-- Choix client --</option>
                                                     <?php
+                                                        if($listeClient==null)
+                                                        {
+                                                          echo "<option value='#'>Vous ne possedez pas de client</option>";
+                                                        }
+                                                        else{
+                                                            echo "<option value=''>-- Choix client --</option>";
+                                                        }
                                                         foreach($listeClient as $client)
                                                         {
                                                             $nom =$client[1]." ".$client[2];
