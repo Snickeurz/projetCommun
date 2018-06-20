@@ -1,7 +1,7 @@
 
 <main class="l-main hideDisplay" id="listeClients">
     <div class="content-wrapper content-wrapper--with-bg">
-        <h1 class="page-title bg-info">LISTE DES CLIENTS <span class="fa fa-file bg-info"></span></h1>
+        <h1 class="page-title">LISTE DES CLIENTS</h1>
         <div class="page-content">
             <div class="container">
 
@@ -29,7 +29,7 @@
                 <?php
                     if(empty($listeClients))
                     {
-                        echo "<div class='alert alert-info'>Vous n'avez pas de client pour l'instant.. Ajoutez en depuis la liste déroulante !</div>";
+                        echo "<div class='alert alert-info'>Vous n'avez pas de clients partenaires pour l'instant.. Ajoutez-en depuis la liste déroulante !</div>";
                     }
                     foreach($listeClients as $client)
                     {

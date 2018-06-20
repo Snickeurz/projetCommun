@@ -32,7 +32,7 @@ $(function() {
             $("#envoie_reussit").show();
             break;
         case 'message_not_send':
-            $("#display_sucess_send_contact").html("<strong>Un problème est survenu lors de l'envoie , merci de réessayer plus tard!</strong> Nous mettons tout en oeuvre pour résoudre la panne asap !<br>\n Nous vous remercions d'avance pour votre patience.");
+            $("#display_sucess_send_contact").html("<strong>Un problème est survenu lors de l'envoi, merci de réessayer plus tard!</strong> Nous mettons tout en oeuvre pour résoudre la panne !<br>\n Nous vous remercions d'avance pour votre patience.");
             // Display la div alert dans contact.html
             $("#envoie_reussit").show();
             break;
@@ -48,11 +48,11 @@ $(function() {
     switch (parametreEdit)
     {
         case 'password':
-            $("#display_success_edit").html("<strong>Mot de passe modifié</strong> Nous avons bien prit en compte votre modification de mot de passe !<br>");
+            $("#display_success_edit").html("<strong>Mot de passe modifié</strong> Nous avons bien pris en compte vos modifications<br>");
             $("#editProfilSuccess").show();
             break;
         case 'coord_true':
-            $("#display_success_edit").html("<strong>Coordonnées modifié</strong> Nous avons bien prit en compte votre modification d'email et de téléphone !<br>");
+            $("#display_success_edit").html("<strong>Coordonnées modifiées</strong> Nous avons bien pris en compte vos modifications<br>");
             $("#editProfilSuccess").show();
             break;
         case 'coord_false':
@@ -60,7 +60,7 @@ $(function() {
             $("#editProfilFail").show();
             break;
         case 'names_true':
-            $("#display_success_edit").html("<strong>Nom/Prénom modifié</strong> Nous avons bien prit en compte votre modification de votre prénom et nom!<br>");
+            $("#display_success_edit").html("<strong>Nom/Prénom modifié</strong> Nous avons bien pris en compte vos modifications<br>");
             $("#editProfilSuccess").show();
             break;
         case 'names_false':
@@ -68,7 +68,7 @@ $(function() {
             $("#editProfilFail").show();
             break;
         case 'contrat_signe':
-            $("#display_success_edit").html("<strong>Contrat signé</strong> Nous avons bien prit en compte la signature de votre contrat !<br>");
+            $("#display_success_edit").html("<strong>Contrat signé</strong> Nous avons bien pris en compte la signature de votre contrat !<br>");
             $("#editProfilSuccess").show();
             break;
         case 'contrat_non_signe':
@@ -80,7 +80,7 @@ $(function() {
             $("#editProfilSuccess").show();
             break;
         case 'pref_false':
-            $("#display_fail_edit").html("<strong>Préférences non modifiées</strong> Un problème est survenue !<br>");
+            $("#display_fail_edit").html("<strong>Préférences non modifiées</strong> Un problème est survenu !<br>");
             $("#editProfilFail").show();
             break;
         default:

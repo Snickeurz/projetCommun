@@ -8,7 +8,7 @@
 ?>
 <main class="l-main hideDisplay" id="listeEntreprises">
     <div class="content-wrapper content-wrapper--with-bg">
-        <h1 class="page-title bg-info">LISTE DES ENTREPRISES <span class="fa fa-file bg-info"></span></h1>
+        <h1 class="page-title">LISTE DES ENTREPRISES</h1>
         <div class="page-content">
             <div class="container">
                 <?php
