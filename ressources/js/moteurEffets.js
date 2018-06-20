@@ -83,6 +83,14 @@ $(function() {
             $("#display_fail_edit").html("<strong>Préférences non modifiées</strong> Un problème est survenu !<br>");
             $("#editProfilFail").show();
             break;
+        case 'add_client_true':
+            $("#display_success_edit").html("<strong>Client ajouté !</strong>  Vous pouvez dès à présent téléverser un fichier pour votre client !<br>");
+            $("#editProfilSuccess").show();
+            break;
+        case 'add_client_false':
+            $("#display_fail_edit").html("<strong>Problème lors de l'ajout !</strong> Veuillez réessayer ultérieurement !<br>");
+            $("#editProfilFail").show();
+            break;
         default:
             break;
     }
