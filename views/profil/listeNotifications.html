@@ -36,7 +36,7 @@
                                 echo $notif[3];
                                 echo "</td>";
                             echo "<td>";
-                                echo "<a href='./index.php?uc=contrat&ac=show' class='btn btn-info'><span class='fa fa-eye'></span> Voir le contrat concerné</a></td>";
+                    echo "<form method='POST' action='./index.php?uc=notification&ac=delete'><input hidden name='id_notification_to_del' value='$notif[0]'> <button type='submit' class='btn btn-danger' name='delete_notification'><span class='fa fa-trash'></span> Supprimer la notification</button></form></td>";
                         echo "</tr>";
                         $i++;
                      }

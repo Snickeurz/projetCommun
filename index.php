@@ -175,6 +175,12 @@ else
             }
             break;
 
+        case 'notification':
+            if($ac=='delete')
+            {
+                include("controler/NotificationControler.php");
+            }
+            break;
         /**
          * On veut observer l'onglet service
          */

@@ -67,4 +67,18 @@ class NotificationManager
         $count->execute();
         return $count->fetchColumn();
     }
+
+    /**
+     * Supprime une notification en base de données.
+     *
+     * @param int $idNotification l'id de la notification
+     * @return mixed
+     */
+    public static function deleteNotification($idNotification)
+    {
+        $monPdo = MonPdo::getInstance();
+        $delete = $monPdo->prepare("DELETE FROM notification WHERE id = :idNotification");
+        $delete->bindParam(":idNotification",$idNotification, PDO::PARAM_INT);
+        return $delete->execute();
+    }
 }
