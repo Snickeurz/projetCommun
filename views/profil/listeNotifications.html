@@ -17,11 +17,13 @@
                 <?php
                  if(!empty($allNotifications))
                  {
+                     $i =1;
                      foreach($allNotifications as $notif)
                      {
                         echo "<tr>";
                             echo "<td scope='row'>";
-                                echo $notif[0]; //id
+                                //echo $notif[0]; //id
+                                echo $i;
                                 echo "</td>";
                             echo "<td>";
                                 echo $notif[1];
@@ -36,6 +38,7 @@
                             echo "<td>";
                                 echo "<a href='./index.php?uc=contrat&ac=show' class='btn btn-info'><span class='fa fa-eye'></span> Voir le contrat concerné</a></td>";
                         echo "</tr>";
+                        $i++;
                      }
                 }
                 else
