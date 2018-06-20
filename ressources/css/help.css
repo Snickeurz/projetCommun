@@ -1,5 +1,5 @@
 .banner{
-    background-image: url("/projetCommunV2/ressources/img/navFaq.jpg") !important;
+    background-image: url("/projetCommun/ressources/img/navFaq.jpg") !important;
     color: #fff;
     min-height: 100px;
     padding: 65px;
@@ -8,10 +8,9 @@
 }
 
 .contentHelp {
-    width: 80%;
-    padding: 20px;
+    width: 60%;
+    padding: 0.25% !important;
     margin: 0 auto;
-    padding: 0 60px 0 0;
 }
 
 
@@ -30,24 +29,11 @@
 
 .answers {
     border: 1px solid #343a40;
-    border-radius: 10px;
-    padding: 0px 15px;
+    border-radius: 3px;
+    padding: 0.5% 0.5%;
     margin: 5px 0;
-    height: 0;
-    overflow: hidden;
-    z-index: -1;
-    position: relative;
-    opacity: 0;
-    -webkit-transition: .7s ease;
-    -moz-transition: .7s ease;
-    -o-transition: .7s ease;
-    transition: .7s ease;
-}
-
-.questions:checked ~ .answers{
-    height: auto;
-    opacity: 1;
-    padding: 15px;
+    background-color: whitesmoke;
+    color: black;
 }
 
 .plus {
@@ -59,24 +45,10 @@
     z-index: 5;
     font-size: 2em;
     line-height: 100%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-    -webkit-transition: .3s ease;
-    -moz-transition: .3s ease;
-    -o-transition: .3s ease;
-    transition: .3s ease;
 }
 
-.questions:checked ~ .plus {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
 
-.questions {
-    display: none;
+a:hover{
+    color:white;
+    text-decoration: none;
 }
