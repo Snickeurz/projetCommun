@@ -1,4 +1,3 @@
-<meta charset="utf-8">
 <div class="text-xs-center banner">
     <h1 style="font-size: 3rem;">F.A.Q</h1>
     <p class="lead banner-text"  >

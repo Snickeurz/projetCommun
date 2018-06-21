@@ -8,7 +8,7 @@ $(function() {
      * Cacher le slider principal sauf pour certaines pages
      */
     var parametreUC = getUrlParameter('uc');
-    if(parametreUC!=="accueil" || parametreUC!=="service" || parametreUC!=="help")
+    if(parametreUC!="accueil")
     {
         $("#carouselLogo").hide();
      //   $(".carousel").hide();
