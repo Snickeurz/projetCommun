@@ -31,16 +31,14 @@ function newContrat()
     $uploadDir = "./uploads/contrats/".AccountManager::getNameById($idClient);
     $uploadFile = $uploadDir ."/".basename($_FILES['contrat']['name']);
     $description = $_POST["description"];
-    var_dump($description);
+
     if(ContratCUD::addContrat($uploadFile,$nomContrat,$idClient,$idEntreprise, $description)&&uploadFile($uploadDir,$uploadFile))
     {
         $message = "L'entreprise <span style='color:red;'>".AccountManager::getNameById($_SESSION["id"])." </span>vous a envoyé un contrat";
         NotificationManager::newNotification("Nouveau contrat", $message, "./index.php?uc=profil&ac=show", $idClient);
-        if(AccountManager::getRole($_SESSION["id"])==0)
-        {
-            $message = "Vous venez d'ajouter le contrat ".$nomContrat." pour le client ".AccountManager::getNameById($idClient);
-            NotificationManager::newNotification("Ajout d'un contrat", $message, "./index.php?uc=profil&ac=show", $_SESSION["id"]);
-        }
+        $message = "Vous venez d'ajouter le contrat ".$nomContrat." pour le client ".AccountManager::getNameById($idClient);
+        NotificationManager::newNotification("Ajout d'un contrat", $message, "./index.php?uc=profil&ac=show", $_SESSION["id"]);
+
         echo '<script>window.location.replace("./index.php?uc=profil&ac=show&information=uploadOk");</script>';
     }
     else
@@ -61,6 +59,18 @@ function uploadFile($uploadDir,$uploadFile)
     if (move_uploaded_file($_FILES['contrat']['tmp_name'], $uploadFile)) {
         $checkMove = true;
     }
+    /* for debug purpose
+    switch ($_FILES['contrat']['error']) {
+        case UPLOAD_ERR_OK:
+            break;
+        case UPLOAD_ERR_NO_FILE:
+            throw new RuntimeException('No file sent.');
+        case UPLOAD_ERR_INI_SIZE:
+        case UPLOAD_ERR_FORM_SIZE:
+            throw new RuntimeException('Exceeded filesize limit.');
+        default:
+            throw new RuntimeException('Unknown errors.');
+    }*/
     return $checkMove;
 }
 
