@@ -4,24 +4,23 @@
     <p class="lead banner-text"  >
         Toutes vos questions
     </p>
-</div>
-<br>
-
-<div class="contentHelp">
-    <div>
-        <?php
-        foreach($faq as $qr) {
-            echo '<input type="checkbox" id="' . $qr['id'] . '" class="questions">';
-            echo "<div class='plus'>+</div>";
-                echo '<label for="' . $qr['id'] . '" class="question">';
-                echo($qr['question']);
-                echo("</label>");
-            echo('<div class="answers">');
-            echo($qr['reponse']);
-            echo("</div>");
-        }
-        ?>
-    </div>
-
+    <?php
+    $i = 0;
+    foreach($faq as $qr) {
+        echo '<div class="contentHelp">';
+        echo "<div class='plus'>+</div>";
+        echo '<a href="#demo'.$i.'" data-toggle="collapse" class="question">';
+        echo($qr['question']);
+        echo '</a>';
+        echo '<div id="demo'.$i.'" class="collapse answers">';
+        echo($qr['reponse']);
+        echo '</div>';
+        $i++;
+        echo '</div>';
+    }
+    $i=0;
+    ?>
 
 </div>
+
+
