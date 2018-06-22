@@ -5,7 +5,8 @@
         <div class="page-content">
             <div class="container">
 
-                <form action="./index.php?uc=profil&ac=addclient" method="POST">
+                <form action="./index.php?uc=profil&ac=addclient" method="POST" class=" alert alert-dark" role="alert">
+                    <legend>FORMULAIRE D'AJOUT DE CLIENT</legend>
                     <div class="row">
                         <div class="col-8">
                             <select name="idClientToAdd" id="select_utilisateur" class="full-width">

@@ -46,7 +46,11 @@ BARRE DE NAVIGUATION HORIZONTAL POUR LE PROFIL
             <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
         </div>
         <div class="c-header-icon"  data-toggle="modal" data-target="#notifModal">
-            <span class="c-badge c-badge--header-icon animated shake">xx</span>
+            <span class="c-badge c-badge--header-icon animated shake">
+                <?php
+                    echo NotificationManager::countNotification($_SESSION["id"]);
+                ?>
+            </span>
             <i class="fa fa-bell"></i>
         </div>
         <div class="c-search">
